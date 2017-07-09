@@ -1,5 +1,5 @@
 {
-    "name": "FileEditorUtils",
+    "name": "file-editor-utils",
     "displayName": "File Editor Utils",
     "description": "File Editor Utils: 1. Add Header Comment 2. Insert DateTime ...",
     "version": "0.0.1",
