@@ -2,14 +2,15 @@
 import * as vscode from "vscode";
 import * as utils from "./utils";
 var sys_username = "$username";
-var getusername = require("username");
-//sys_username = getusername.sync();
-getusername().then(username => {
-	console.log("you account name is " + username);
-    sys_username = username;
-});
 
 export function activate(context: vscode.ExtensionContext) {
+    // 到底做错了什么，为啥商店安装的要单独执行npm install 命令才有用。
+    var getusername = require("username");
+    //sys_username = getusername.sync();
+    getusername().then(username => {
+        console.log("you account name is " + username);
+        sys_username = username;
+    });
 
     utils.registerCommand(context,"onemore.fileEditor.insertFileHeaderComment",() => {
         insertFileHeaderComment(false);

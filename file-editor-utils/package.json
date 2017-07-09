@@ -2,13 +2,13 @@
     "name": "file-editor-utils",
     "displayName": "File Editor Utils",
     "description": "File Editor Utils: 1. Add Header Comment 2. Insert DateTime ...",
-    "version": "0.0.1",
+    "version": "1.0.2",
     "publisher": "onemore",
     "license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/treert/vscode-plugins/tree/master/FileEditorUtils"
-	},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/treert/vscode-plugins/tree/master/file-editor-utils"
+    },
     "engines": {
         "vscode": "^1.13.0"
     },
@@ -26,18 +26,18 @@
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
-        {
-            "command": "onemore.hello.hello",
-            "title": "Hello"
-        },
-        {
-            "command": "onemore.hello.insertDateTime",
-            "title": "Insert Date Time"
-        },
-        {
-            "command": "onemore.fileEditor.insertFileHeaderComment",
-            "title": "Insert Header Comment"
-        }
+            {
+                "command": "onemore.hello.hello",
+                "title": "Hello"
+            },
+            {
+                "command": "onemore.hello.insertDateTime",
+                "title": "Insert Date Time"
+            },
+            {
+                "command": "onemore.fileEditor.insertFileHeaderComment",
+                "title": "Insert Header Comment"
+            }
         ],
         "keybindings": [
             {
@@ -50,58 +50,70 @@
             "title": "File-Editor-Utils configuration",
             "type": "object",
             "properties": {
-                "onemore.fileHeaderComment.auto_insert_when_save":{
-                    "type":"boolean",
-                    "default":false
+                "onemore.fileHeaderComment.auto_insert_when_save": {
+                    "type": "boolean",
+                    "default": false
                 },
-                "onemore.fileHeaderComment.flag":{
-                    "type":"string",
+                "onemore.fileHeaderComment.flag": {
+                    "type": "string",
                     "description": "auto add flag to check is header has added",
-                    "default":"header"
+                    "default": "header"
                 },
-                "onemore.fileHeaderComment.template_create":{
-                    "type":"array",
-                    "default":[
+                "onemore.fileHeaderComment.template_create": {
+                    "type": "array",
+                    "default": [
                         "    > File Name: $file_name",
                         "    > Create Time: $datetime",
                         "    > Athor: $user_name"
                     ],
                     "items": {
-                        "type":"string"
+                        "type": "string"
                     }
                 },
-                "onemore.fileHeaderComment.template_modify":{
-                    "type":"array",
-                    "default":[
+                "onemore.fileHeaderComment.template_modify": {
+                    "type": "array",
+                    "default": [
                         "    > -----",
                         "    > Last Modified: $datetime",
                         "    > Modified By: $user_name",
                         "    > -----"
                     ],
                     "items": {
-                        "type":"string"
+                        "type": "string"
                     }
                 },
-                "onemore.fileHeaderComment.user_name":{
-                    "type":"string",
+                "onemore.fileHeaderComment.user_name": {
+                    "type": "string",
                     "description": "$user_name: will take compute name when name is empty",
-                    "default":""
+                    "default": ""
                 },
-                "onemore.fileHeaderComment.date_format":{
-                    "type":"string",
-                    "default":"yyyy-mm-dd 星期几 HH时MM分ss秒"
+                "onemore.fileHeaderComment.date_format": {
+                    "type": "string",
+                    "default": "yyyy-mm-dd 星期几 HH时MM分ss秒"
                 },
-                "onemore.fileHeaderComment.block_comment":{
+                "onemore.fileHeaderComment.block_comment": {
                     "type": "object",
                     "description": "The language Block Comment, default is /* */",
                     "default": {
-                        "lua":["--[[","]]"],
-                        "simplescript":["//[[","]]"],
-                        "python":["'''","'''"]
+                        "lua": [
+                            "--[[",
+                            "]]"
+                        ],
+                        "simplescript": [
+                            "//[[",
+                            "]]"
+                        ],
+                        "python": [
+                            "'''",
+                            "'''"
+                        ]
                     },
                     "patternProperties": {
                         "*": {
-                            "type": ["string","string"]
+                            "type": [
+                                "string",
+                                "string"
+                            ]
                         }
                     }
                 }
@@ -119,9 +131,10 @@
         "vscode": "^1.0.0",
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "@types/mocha": "^2.2.32",
+        "username": "^2.3.0"
     },
     "dependencies": {
-		"username": "^2.3.0"
-	}
+        "username": "^2.3.0"
+    }
 }

@@ -1,5 +1,5 @@
 # 文件编辑工具
-[github](https://github.com/treert/vscode-plugins/tree/master/FileEditorUtils)
+[github source](https://github.com/treert/vscode-plugins/tree/master/file-editor-utils)
 
 ## 1. 添加文件开头注释
 ```
@@ -35,6 +35,13 @@
 1. file_name
 2. user_name
 3. datetime
+
+## 坑
+1. 我做错了什么，为什么别人的没有事，一定是这个vscode的错
+    1. 插件商店直接搜索安装，提示找不到命令。最终发现在插件目录执行`npm install`，然后就好了~~
+2. 其他
+    1. 开发时不要使用`cnpm install`，安装了些软连接文件夹，复制到插件目录，不生效。马丹，改了不少文件名。
+       可以设置npm使用淘宝链接`npm config -g set registry https://registry.npm.taobao.org/`。
 
 ## dependencies
 
