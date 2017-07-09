@@ -1,5 +1,5 @@
 # 文件编辑工具
-[github](https://github.com/Gigabyte-Giant/vscode-file-header-comment-helper)
+[github](https://github.com/treert/vscode-plugins/tree/master/FileEditorUtils)
 
 ## 1. 添加文件开头注释
 ```
@@ -28,7 +28,7 @@
 4. date_format=`yyyy-mm-dd 星期几 HH时MM分ss秒`
     - 使用`dateformat`模块，格式参考之
     - 特别的：`星期几`替换`星期[日一二三四五六]`
-5. auto_insert_when_save 是否在保存时自动添加，默认是true。
+5. auto_insert_when_save 是否在保存时自动添加，默认是false。
 6. user_name 用户名，默认使用`username`取到的名字。
 
 模版变量`$name`：

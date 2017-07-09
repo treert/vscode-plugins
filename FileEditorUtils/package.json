@@ -47,7 +47,7 @@
             "properties": {
                 "onemore.fileHeaderComment.auto_insert_when_save":{
                     "type":"boolean",
-                    "default":true
+                    "default":false
                 },
                 "onemore.fileHeaderComment.flag":{
                     "type":"string",
