@@ -36,4 +36,9 @@
 2. user_name
 3. datetime
 
+## dependencies
+
+This extension uses the following npm packages:
+* [`username`](https://github.com/sindresorhus/username) to get the default author name.
+
 

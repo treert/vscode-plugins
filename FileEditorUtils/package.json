@@ -1,9 +1,14 @@
 {
-    "name": "file_editor_utils",
+    "name": "FileEditorUtils",
     "displayName": "File Editor Utils",
     "description": "File Editor Utils: 1. Add Header Comment 2. Insert DateTime ...",
     "version": "0.0.1",
     "publisher": "onemore",
+    "license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/treert/vscode-plugins/tree/master/FileEditorUtils"
+	},
     "engines": {
         "vscode": "^1.13.0"
     },
@@ -27,7 +32,7 @@
         },
         {
             "command": "onemore.hello.insertDateTime",
-            "title": "Inset Date Time"
+            "title": "Insert Date Time"
         },
         {
             "command": "onemore.fileEditor.insertFileHeaderComment",
