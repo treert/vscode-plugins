@@ -4,6 +4,7 @@ import * as utils from "./utils";
 var dateFormat = require('dateformat');
 // const moment = require("moment");
 // require("moment/min/locales.min");
+var username = require("username");
 
 let window = vscode.window;
 let configPrefix: String = "fileHeaderCommentHelper";
@@ -14,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 function hello() {
-    vscode.window.showInformationMessage('Hello');
+    vscode.window.showInformationMessage('Hello '+username.sync());
 }
 
 function getWeek(day) {

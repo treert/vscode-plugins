@@ -14,15 +14,15 @@
         "file header comment"
     ],
     "activationEvents": [
-        "onCommand:onemore.hello",
+        "onCommand:onemore.hello.hello",
         "onCommand:onemore.hello.insertDateTime",
-        "onemore.fileEditor.insertFileHeaderComment"
+        "onCommand:onemore.fileEditor.insertFileHeaderComment"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
         {
-            "command": "onemore.hello",
+            "command": "onemore.hello.hello",
             "title": "Hello"
         },
         {
@@ -36,11 +36,6 @@
         ],
         "keybindings": [
             {
-                "command": "onemore.hello.insertDateTime",
-                "key": "ctrl+alt+H ctrl+alt+i",
-                "when": "editorTextFocus"
-            },
-            {
                 "command": "onemore.fileEditor.insertFileHeaderComment",
                 "key": "ctrl+alt+H ctrl+alt+H",
                 "when": "editorTextFocus"
@@ -50,6 +45,10 @@
             "title": "File-Editor-Utils configuration",
             "type": "object",
             "properties": {
+                "onemore.fileHeaderComment.auto_insert_when_save":{
+                    "type":"boolean",
+                    "default":true
+                },
                 "onemore.fileHeaderComment.flag":{
                     "type":"string",
                     "description": "auto add flag to check is header has added",
@@ -78,26 +77,26 @@
                         "type":"string"
                     }
                 },
+                "onemore.fileHeaderComment.user_name":{
+                    "type":"string",
+                    "description": "$user_name: will take compute name when name is empty",
+                    "default":""
+                },
                 "onemore.fileHeaderComment.date_format":{
                     "type":"string",
                     "default":"yyyy-mm-dd 星期几 HH时MM分ss秒"
                 },
                 "onemore.fileHeaderComment.block_comment":{
                     "type": "object",
+                    "description": "The language Block Comment, default is /* */",
+                    "default": {
+                        "lua":["--[[","]]"],
+                        "simplescript":["//[[","]]"],
+                        "python":["'''","'''"]
+                    },
                     "patternProperties": {
-                        "language_*": {
-                            "type": "object",
-                            "required": [
-                                "template"
-                            ],
-                            "properties": {
-                                "template": {
-                                    "type": "array",
-                                    "items": {
-                                        "type":"string"
-                                    }
-                                }
-                            }
+                        "*": {
+                            "type": ["string","string"]
                         }
                     }
                 }
@@ -115,8 +114,7 @@
         "vscode": "^1.0.0",
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32",
-		"username": "^2.3.0"
+        "@types/mocha": "^2.2.32"
     },
     "dependencies": {
 		"username": "^2.3.0"
