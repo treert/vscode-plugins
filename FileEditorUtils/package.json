@@ -1,0 +1,124 @@
+{
+    "name": "file_editor_utils",
+    "displayName": "File Editor Utils",
+    "description": "File Editor Utils: 1. Add Header Comment 2. Insert DateTime ...",
+    "version": "0.0.1",
+    "publisher": "onemore",
+    "engines": {
+        "vscode": "^1.13.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "file header comment"
+    ],
+    "activationEvents": [
+        "onCommand:onemore.hello",
+        "onCommand:onemore.hello.insertDateTime",
+        "onemore.fileEditor.insertFileHeaderComment"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+        {
+            "command": "onemore.hello",
+            "title": "Hello"
+        },
+        {
+            "command": "onemore.hello.insertDateTime",
+            "title": "Inset Date Time"
+        },
+        {
+            "command": "onemore.fileEditor.insertFileHeaderComment",
+            "title": "Insert Header Comment"
+        }
+        ],
+        "keybindings": [
+            {
+                "command": "onemore.hello.insertDateTime",
+                "key": "ctrl+alt+H ctrl+alt+i",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "onemore.fileEditor.insertFileHeaderComment",
+                "key": "ctrl+alt+H ctrl+alt+H",
+                "when": "editorTextFocus"
+            }
+        ],
+        "configuration": {
+            "title": "File-Editor-Utils configuration",
+            "type": "object",
+            "properties": {
+                "onemore.fileHeaderComment.flag":{
+                    "type":"string",
+                    "description": "auto add flag to check is header has added",
+                    "default":"header"
+                },
+                "onemore.fileHeaderComment.template_create":{
+                    "type":"array",
+                    "default":[
+                        "    > File Name: $file_name",
+                        "    > Create Time: $datetime",
+                        "    > Athor: $user_name"
+                    ],
+                    "items": {
+                        "type":"string"
+                    }
+                },
+                "onemore.fileHeaderComment.template_modify":{
+                    "type":"array",
+                    "default":[
+                        "    > -----",
+                        "    > Last Modified: $datetime",
+                        "    > Modified By: $user_name",
+                        "    > -----"
+                    ],
+                    "items": {
+                        "type":"string"
+                    }
+                },
+                "onemore.fileHeaderComment.date_format":{
+                    "type":"string",
+                    "default":"yyyy-mm-dd 星期几 HH时MM分ss秒"
+                },
+                "onemore.fileHeaderComment.block_comment":{
+                    "type": "object",
+                    "patternProperties": {
+                        "language_*": {
+                            "type": "object",
+                            "required": [
+                                "template"
+                            ],
+                            "properties": {
+                                "template": {
+                                    "type": "array",
+                                    "items": {
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32",
+		"username": "^2.3.0"
+    },
+    "dependencies": {
+		"username": "^2.3.0"
+	}
+}
