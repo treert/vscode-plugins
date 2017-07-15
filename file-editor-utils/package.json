@@ -2,7 +2,7 @@
     "name": "file-editor-utils",
     "displayName": "File Editor Utils",
     "description": "File Editor Utils: 1. Add Header Comment 2. Insert DateTime ...",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publisher": "onemore",
     "license": "MIT",
     "repository": {
@@ -131,10 +131,14 @@
         "vscode": "^1.0.0",
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32",
-        "username": "^2.3.0"
+        "@types/mocha": "^2.2.32"
     },
     "dependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32",
         "username": "^2.3.0"
     }
 }
