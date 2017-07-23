@@ -19,7 +19,7 @@
 
 特点或限制：
 1. 模板对所有的语言一样，除了块注释符
-2. 文件保存时，自动更新或插入注释【条件是block_comment里配置了对于的语言】
+2. 文件保存时，自动更新或插入注释【条件是block_comment里配置了对于的语言】【默认不开启自动保存】
 
 配置：
 1. template_create 创建注释 字符串数组
@@ -30,6 +30,7 @@
     - 特别的：`星期几`替换`星期[日一二三四五六]`
 5. auto_insert_when_save 是否在保存时自动添加，默认是false。
 6. user_name 用户名，默认使用`username`取到的名字。
+7. auto_insert_when_save 自动保存，默认false
 
 模版变量`$name`：
 1. file_name

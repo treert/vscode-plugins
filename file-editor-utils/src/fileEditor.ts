@@ -69,93 +69,97 @@ function insertFileHeaderComment(trigger_by_auto_save:boolean) {
     {
         user_name = sys_username;
     }
-
-    // check flag
-    comment_begin += flag;
-    var content_header = _editor.document.getText(
-        new vscode.Range(
-            new vscode.Position(0,0),
-            new vscode.Position(0,comment_begin.length)
-        ));
-    //console.log("txt:" + content_header);
-    var use_modify = content_header.startsWith(comment_begin);
-
     var file_name = _editor.document.fileName.replace(/\\/g,'/');
     file_name = file_name.substring(file_name.lastIndexOf("/")+1,file_name.length);
     var datetime = utils.getNowDateStr(date_format);
 
-    var comment_all = comment_begin+"\n" + template_create.join("\n") + "\n";
-    if(use_modify)
-    {
-        comment_all += template_modify.join("\n") + "\n";
-    }
-    comment_all += comment_end;
-    
     var replace_arr = [
         ["$user_name",user_name],
         ["$file_name",file_name],
         ["$datetime",datetime],
     ];
-    
-    replace_arr.forEach(element => {
-        while(comment_all.includes(element[0]))
-        {
-            comment_all = comment_all.replace(element[0],element[1]);
-        }
-        //comment_all = string.replace() 也是醉了
-    });
 
-    // comment_all = comment_all
-    //     .replace("$user_name",user_name)
-    //     .replace("$file_name",file_name)
-    //     .replace("$datetime",datetime);
-
-    //console.log(comment_all);
-
-    if(use_modify == false)
+    var replace_func = function(content:string):string
     {
+        replace_arr.forEach(element => {
+            while(content.includes(element[0]))
+            {
+                content = content.replace(element[0],element[1]);
+            }
+            //content = string.replace() 也是醉了
+        });
+        return content;
+    };
+
+    var check_comment_begin = function():boolean
+    {
+        // check flag
+        comment_begin += flag;
+        var content_header = _editor.document.getText(
+            new vscode.Range(
+                new vscode.Position(0,0),
+                new vscode.Position(0,comment_begin.length)
+            ));
+        //console.log("txt:" + content_header);
+        var use_modify = content_header.startsWith(comment_begin);
+        return use_modify;
+    }
+
+    var add_create_comment = function()
+    {
+        var comment_all = comment_begin+"\n" + template_create.join("\n") + "\n" + comment_end + "\n";
+        comment_all = replace_func(comment_all);
         _editor.edit((edit) => {
-            edit.insert(new vscode.Position(0, 0), comment_all+"\n");
+            edit.insert(new vscode.Position(0, 0), comment_all);
         });
     }
-    else
+
+    var find_comment_end_line = function():number
     {
-        
         var all_lines = Math.min(_editor.document.lineCount
             , template_create.length + template_modify.length + 3);
-        var end_line = 0, end_column = -1;
+        var end_line = template_create.length + 1;
         for(; end_line < all_lines; end_line++)
         {
             var line_txt = _editor.document.lineAt(end_line).text;
-            end_column = line_txt.indexOf(comment_end);
+            var end_column = line_txt.indexOf(comment_end);
             if(end_column >= 0)
             {
-                end_column = line_txt.length + 2;// eat \r\n
-                break;
+                return end_line;
             }
         }
-        if(end_line < all_lines)
+        return -1;
+    }
+    
+    if(check_comment_begin() == false)
+    {
+        add_create_comment();
+    }
+    else
+    {
+        // keep create comment, add or update modify comment
+        var comment_end_line = find_comment_end_line();
+        var create_lines = template_create.length + 1;
+        if(comment_end_line >= create_lines)
         {
-            var start_pos = new vscode.Position(0,0);
-            var end_pos = new vscode.Position(end_line,end_column);
+            var start_pos = new vscode.Position(create_lines,0);
+            var end_pos = new vscode.Position(comment_end_line+1,0);
             var range = new vscode.Range(start_pos, end_pos);
-            // ok
+            
+            var comment = template_modify.join("\n") + "\n" + comment_end + "\n";
+            comment = replace_func(comment);
+
             _editor.edit((edit) => {
-                edit.replace(range, comment_all);
+                edit.replace(range, comment);
             });
+        }
+        else if (trigger_by_auto_save)
+        {
+            return;
         }
         else
         {
-            if(trigger_by_auto_save)
-            {
-                return;
-            }
-            else
-            {
-                _editor.edit((edit) => {
-                    edit.insert(new vscode.Position(0, 0), comment_all+"\n");
-                });
-            }
+            add_create_comment();
         }
     }
 

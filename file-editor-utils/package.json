@@ -2,7 +2,7 @@
     "name": "file-editor-utils",
     "displayName": "File Editor Utils",
     "description": "File Editor Utils: 1. Add Header Comment 2. Insert DateTime ...",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "publisher": "onemore",
     "license": "MIT",
     "repository": {
