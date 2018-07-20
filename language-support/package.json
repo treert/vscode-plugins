@@ -1,0 +1,32 @@
+{
+    "name": "language-support",
+    "displayName": "Language Support",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "onemore",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "llvm",
+            "aliases": ["llvm", "LLVM"],
+            "extensions": [".ll"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "llvm",
+            "scopeName": "source.llvm",
+            "path": "./syntaxes/llvm.tmLanguage.xml"
+        }],
+        "snippets":[
+            {
+                "language": "llvm",
+                "path": ""
+            }
+        ]
+    }
+}
