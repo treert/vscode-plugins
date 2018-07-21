@@ -7,3 +7,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [1.0.0] - 2018-07-21
 ### Added
 - llvm的IR文件的语法高亮和代码片段
+- 在light_vs基础上自定义的theme

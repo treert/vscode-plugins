@@ -20,3 +20,7 @@ write some vs code plugins
         - macOS `~/.vscode/extensions`
         - Linux `~/.vscode/extensions`
     2. 文档，可以在帮助里直接点文档，会跳转的网页上
+
+
+## 其他
+1. 个人的token的管理地址：https://treert.visualstudio.com/

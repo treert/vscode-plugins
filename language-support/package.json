@@ -2,6 +2,10 @@
     "name": "language-support",
     "displayName": "Language Support",
     "description": "支持各种语言的语法高亮和简单的代码片段",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/treert/vscode-plugins/tree/master/language-support"
+    },
     "version": "1.0.0",
     "publisher": "onemore",
     "engines": {
