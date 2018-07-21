@@ -8,9 +8,17 @@
         "vscode": "^1.25.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages","Themes"
     ],
     "contributes": {
+        "themes":[
+            {
+                "label": "One More Theme",
+                "id": "One More Theme",
+                "uiTheme": "vs",
+                "path": "./themes/one.more.tmTheme.json"
+            }
+        ],
         "languages": [{
             "id": "llvm",
             "aliases": ["llvm", "LLVM"],
