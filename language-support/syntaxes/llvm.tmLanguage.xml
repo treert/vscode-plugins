@@ -23,7 +23,8 @@
 			<key>match</key>
 			<string>\b(add|alloca|and|ashr|atomicrmw|bitcast|br|call|cmpxchg|eq|exact|extractelement|extractvalue|fadd|fcmp|fdiv|fence|fmul|fpext|fptosi|fptoui|fptrunc|frem|fsub|getelementptr|icmp|inbounds|indirectbr|insertelement|insertvalue|inttoptr|invoke|landingpad|load|lshr|mul|ne|nsw|nuw|oeq|oge|ogt|ole|olt|one|or|ord|phi|ptrtoint|resume|ret|sdiv|select|sext|sge|sgt|shl|shufflevector|sitofp|sle|slt|srem|store|sub|switch|to|trunc|udiv|ueq|uge|uge|ugt|ugt|uitofp|ule|ule|ult|ult|une|uno|unreachable|unwind|urem|va_arg|xor|zext)\b</string>
 			<key>name</key>
-			<string>keyword.instruction.llvm</string>
+			<string>keyword.other.unit.llvm</string>
+			<!-- <string>keyword.instruction.llvm</string> -->
 		</dict>
 		<dict>
 			<key>comment</key>

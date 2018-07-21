@@ -1,8 +1,8 @@
 {
     "name": "language-support",
     "displayName": "Language Support",
-    "description": "",
-    "version": "0.0.1",
+    "description": "支持各种语言的语法高亮和简单的代码片段",
+    "version": "1.0.0",
     "publisher": "onemore",
     "engines": {
         "vscode": "^1.25.0"
@@ -25,7 +25,7 @@
         "snippets":[
             {
                 "language": "llvm",
-                "path": ""
+                "path": "./snippets/llvm.snippets.json"
             }
         ]
     }
