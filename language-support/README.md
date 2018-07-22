@@ -1,5 +1,6 @@
 ## 支持的语言
 1. llvm.ir，参考：https://marketplace.visualstudio.com/items?itemName=RReverser.llvm
+2. rst，参考：https://marketplace.visualstudio.com/items?itemName=idleberg.hopscotch
 
 
 ## 关于TextMate的语法

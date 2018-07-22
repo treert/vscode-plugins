@@ -6,7 +6,7 @@
         "type": "git",
         "url": "https://github.com/treert/vscode-plugins/tree/master/language-support"
     },
-    "version": "1.0.0",
+    "version": "1.1.0",
     "publisher": "onemore",
     "engines": {
         "vscode": "^1.25.0"
@@ -23,21 +23,40 @@
                 "path": "./themes/one.more.tmTheme.json"
             }
         ],
-        "languages": [{
-            "id": "llvm",
-            "aliases": ["llvm", "LLVM"],
-            "extensions": [".ll"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "llvm",
-            "scopeName": "source.llvm",
-            "path": "./syntaxes/llvm.tmLanguage.xml"
-        }],
+        "languages": [
+            {
+                "id": "llvm",
+                "aliases": ["llvm", "LLVM"],
+                "extensions": [".ll"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "rst",
+                "aliases": ["rst"],
+                "extensions": [".rst"],
+                "configuration": "./lang.config/rst.lang.config.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "llvm",
+                "scopeName": "source.llvm",
+                "path": "./syntaxes/llvm.tmLanguage.xml"
+            },
+            {
+                "language": "rst",
+                "scopeName": "source.rst",
+                "path": "./syntaxes/rst.tmLanguage.xml"
+            }
+        ],
         "snippets":[
             {
                 "language": "llvm",
                 "path": "./snippets/llvm.snippets.json"
+            },
+            {
+                "language": "rst",
+                "path": "./snippets/rst.snippets.json"
             }
         ]
     }
