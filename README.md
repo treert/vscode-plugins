@@ -24,3 +24,4 @@ write some vs code plugins
 
 ## 其他
 1. 个人的token的管理地址：https://treert.visualstudio.com/
+   - 具体是这个地址：https://dev.azure.com/onemore/_usersSettings/tokens
